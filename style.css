@@ -168,8 +168,10 @@ ul li{
         }
         .content-aboutme1-photo{
             background: url(https://images6.alphacoders.com/130/1303873.png);
-            background-position: right;
-            background-size: cover;
+            background-color: black;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
             flex: 1;
 
         }
@@ -203,7 +205,10 @@ ul li{
         }
         .content-aboutme2-photo{
             background: url(https://i.pinimg.com/564x/70/ef/74/70ef74a88378daa8fd86e5876c885d3f.jpg);
-            background-size: cover;
+            background-color: black;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
             flex: 1;
 
         }
