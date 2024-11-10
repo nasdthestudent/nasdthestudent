@@ -263,7 +263,10 @@ ul li{
         input, textarea{
             border: none;
             border-bottom: 1px solid #dadada;
-            margin-bottom: 20px;
+            font-family: 'Lora', serif;
+            font-size: 18px;
+            margin: 15px 30px;
+            padding-bottom: 15px;
             transition: border-color 0.3s;
 
         }
@@ -274,8 +277,23 @@ ul li{
         }
         
         .sponsor-form-contactme{
-            align-items: end;
-            width: 50px;
+            display: flex;
+            justify-content: end;
+            margin: 10px 20px;
+
+            button{
+                background-color: rgb(41, 41, 41);
+                border: none;
+                border-radius: 100px;
+                color: white;
+                font-family: 'Montserrat';
+                font-size: 20px;
+                font-weight: bold;
+                height: 50px;
+                letter-spacing: 5px;
+                
+                width: 180px;
+            }
         }
     }
 }
@@ -287,7 +305,61 @@ ul li{
     flex-direction: column;
 
     .footer-section{
+        display: flex;
+        flex-direction: column;
         margin: 30px;
+
+        .logo{
+            color: black;
+            margin-bottom: 10px;
+        }
+
+        .subscribe{
+            margin-bottom: 20px;
+        }
+
+        input{
+            border: none;
+            border-top-left-radius: 50px;
+            border-bottom-left-radius: 50px;
+            font-size: 20px;
+            height: 20px;
+            padding: 30px;
+            width: 220px;
+        }
+
+        input:focus{
+            outline: none;
+            border: 1px solid black;
+            border-right: none;
+        }
+
+        button {
+            padding: 12px 24px;                    /* Padding tombol */
+            font-size: 16px;                       /* Ukuran teks */
+            font-weight: bold;                     /* Teks tebal */
+            color: white;                          /* Warna teks */
+            background: #333;
+            border: none;                          /* Hapus border */
+            border-radius: 8px;                    /* Border melengkung */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow */
+            cursor: pointer;                       /* Ubah kursor jadi tangan */
+            transition: all 0.3s ease;             /* Transisi halus saat hover */
+        }
+        
+        button:hover {
+            background: #333; 
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);       /* Shadow lebih besar */
+            transform: translateY(-3px);                     /* Efek naik */
+        }
+        
+        button:active {
+            background: linear-gradient(145deg, #222, #444); /* Warna lebih gelap saat diklik */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);       /* Shadow lebih kecil */
+            transform: translateY(2px);                      /* Efek turun */
+        }
+        
+        
     }
 
 }

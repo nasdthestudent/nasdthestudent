@@ -114,9 +114,11 @@
     </div>
     <section class="sponsor-form">
       <input type="text" name="name" placeholder="Name">
-      <input type="text" name="email" placeholder="Email">
+      <input type="text" name="email" placeholder="Email *">
       <textarea name="message" placeholder="Message" rows="4"></textarea>
-      <button type="submit" class="sponsor-form-contactme">SENT</button>
+      <div class="sponsor-form-contactme">
+        <button type="submit">SENT</button>
+      </div>
     </section>
   </div>
   <!-- Sponsor end -->
@@ -132,9 +134,11 @@
       <a href="mailto:saftanasdalihin@gmail.com">saftanasdalihin@gmail.com</a>
     </section>
     <section class="footer-section">
-      Subscribe to our newsletter
-      <input type="text" placeholder="Email">
-      <button>SUBSCRIBE</button>
+      <p class="subscribe">
+        Subscribe to our newsletter
+      </p>
+      <input type="text" name="email" placeholder="Email" class="subscribe">
+      <button class="subscribe">SUBSCRIBE</button>
     </section>
   </div>
   <footer class="footer-copyright">
