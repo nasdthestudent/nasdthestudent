@@ -1,22 +1,13 @@
-// Menyimpan posisi scroll sebelum refresh
-window.addEventListener('beforeunload', () => {
-    localStorage.setItem('scrollPosition', window.scrollY);
-});
+function toggleDropdown() {
+    const dropdown = document.querySelector(".container-navbar-dropdown-option");
+    dropdown.style.display = dropdown.style.display === "flex" ? "none" : "flex";
+}
 
-// Mengembalikan posisi scroll setelah refresh
-window.addEventListener('load', () => {
-    const scrollPosition = localStorage.getItem('scrollPosition');
-    if (scrollPosition) {
-        window.scrollTo(0, scrollPosition);
-        localStorage.removeItem('scrollPosition');
+window.onclick = function(event) {
+    if (!event.target.matches('.container-navbar-dropdown-button')) {
+        const dropdowns = document.querySelectorAll(".container-navbar-dropdown-option");
+        dropdowns.forEach(dropdown => {
+            dropdown.style.display = "none";
+        });
     }
-});
-
-window.addEventListener('scroll', function() {
-    const navbar = document.querySelector('.container-navbar');
-    const scrollPosition = window.scrollY;
-    
-    // Menyesuaikan kecepatan scroll background
-    navbar.style.backgroundPositionY = `${scrollPosition * 0.5}px`; // 0.5 membuat scroll lebih lambat
-});
-
+}
