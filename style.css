@@ -93,6 +93,11 @@ ul li{
             display: flex;
             flex-direction: column;
             padding-bottom: 12px;
+            overflow: hidden;
+            max-height: 0;
+            opacity: 0;
+            transition: max-height 0.4s ease;
+            pointer-events: none;
 
             a{
                 margin: 0px 30px;
@@ -109,6 +114,22 @@ ul li{
                 color: #3b3b3b8f;
             }
         }
+
+        .container-navbar-dropdown-option.open{
+            opacity: 1;
+            pointer-events: auto;
+            max-height: 500px;
+        }
+
+    }
+    .container-navbar.navbar-fixed {
+        position: fixed; /* Ubah posisi menjadi fixed */
+        top: 0;          /* Tetap berada di atas layar */
+        left: 0;
+        right: 0;
+        z-index: 1000;     /* Pastikan berada di depan elemen lainnya */
+        background-color: #f7f7f7;
+        transform: translateY(-50px);
     }
 
     .container-text{
