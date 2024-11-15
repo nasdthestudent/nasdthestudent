@@ -62,7 +62,7 @@ ul li {
     height: 67px;
     position: relative;
     width: 100%;
-    /* transition: position 0.3s; */
+    transition: position 0.3s;
 }
 
 /* Fixed navbar when scrolled */
