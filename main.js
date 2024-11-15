@@ -9,12 +9,12 @@ function toggleDropdown() {
     const navbarSosmed = document.querySelectorAll(".container-navbar-sosmed a");
     const navbarButton = document.querySelector(".container-navbar-button");
     const containerText = document.querySelector(".container-text-main");
+
     // Jika dropdown belum terbuka
     if (!isDropdownOpen) {
-        containerText.style.paddingTop = "67px"
-        dropdown.style.maxHeight = "500px"
-        // Dropdown buka
-        dropdown.classList.add("open"); // Buka dropdown dengan animasi max-height
+        containerText.style.paddingTop = "67px"; // Tambahkan padding saat dropdown terbuka
+        dropdown.style.maxHeight = "500px"; // Buka dropdown dengan animasi max-height
+        dropdown.classList.add("open"); // Buka dropdown
         navbar.classList.add("navbar-fixed"); // Navbar menjadi fixed saat dropdown terbuka
         navbar.style.backgroundColor = "#f7f7f7"; // Ganti warna navbar saat dropdown dibuka
         navbarLogo.style.color = "#333"; // Ganti warna logo menjadi item
@@ -23,18 +23,19 @@ function toggleDropdown() {
         });
         navbarButton.style.color = "#333"; // Ganti warna button menjadi item
 
-        isDropdownOpen = true;
+        isDropdownOpen = true; // Dropdown terbuka
     } else {
         // Dropdown tutup dengan animasi max-height
-        dropdown.style.maxHeight = "0px";
+        dropdown.style.maxHeight = "0px"; // Tutup dropdown dengan animasi max-height
         
         // Menunggu hingga animasi selesai sebelum menyembunyikan dropdown
         setTimeout(() => {
-            containerText.style.paddingTop = "0"
+            containerText.style.paddingTop = "0"; // Kembalikan padding text utama
             // Menutup dropdown
-            // Jika sudah scroll, tetap fixed
+            dropdown.classList.remove("open");
+            
+            // Jika sudah scroll, navbar tetap fixed dan tidak kembali ke posisi semula
             if (isScrolled) {
-                dropdown.classList.remove("open");
                 navbar.classList.add("navbar-fixed");
                 navbar.style.backgroundColor = "#f7f7f7"; // Warna navbar tetap
                 navbarLogo.style.color = "#333"; // Warna logo tetap
@@ -42,19 +43,24 @@ function toggleDropdown() {
                     link.style.color = "#333"; // Warna sosial media tetap
                 });
                 navbarButton.style.color = "#333"; // Warna button tetap
-            } else {
-                // Jika kembali ke posisi semula
+                containerText.style.paddingTop = "67px"; // Kembalikan padding text utama
+            } else if(window.scrollY > 67) {
+                containerText.style.paddingTop = "67px"; // Kembalikan padding text utama
+                
+            } else{
+
+                // Jika belum scroll, navbar kembali ke default (relative)
                 navbar.classList.remove("navbar-fixed");
                 navbar.style.backgroundColor = ""; // Kembalikan warna navbar default
                 navbarLogo.style.color = ""; // Kembalikan warna logo default
                 navbarSosmed.forEach(link => {
                     link.style.color = ""; // Kembalikan warna sosial media default
-                });
+                    });
                 navbarButton.style.color = ""; // Kembalikan warna button default
-            }
-        }, 500); // SetTimeout untuk memastikan animasi selesai sebelum merubah status dropdown
+                }
+        }, 500); // Delay sesuai durasi animasi max-height (500ms)
 
-        isDropdownOpen = false;
+        isDropdownOpen = false; // Dropdown ditutup
     }
 }
 
@@ -63,7 +69,7 @@ function handleScroll() {
     const navbar = document.querySelector(".container-navbar");
 
     if (isDropdownOpen) {
-        // Jika dropdown terbuka, jangan ubah warna navbar
+        // Jika dropdown terbuka, jangan ubah warna navbar atau posisinya
         return; // Keluar dari fungsi jika dropdown terbuka
     }
 
@@ -80,10 +86,10 @@ function handleScroll() {
             navbarSosmed.forEach(link => {
                 link.style.color = "#333"; // Ganti warna sosial media
             });
-            button.style.color = "#333"
+            button.style.color = "#333"; // Ganti warna button
 
             const containerText = document.querySelector(".container-text-main");
-            containerText.style.paddingTop = "67px"
+            containerText.style.paddingTop = "67px";
         }
     } else {
         if (isScrolled) {
@@ -98,16 +104,23 @@ function handleScroll() {
             navbarSosmed.forEach(link => {
                 link.style.color = ""; // Kembalikan warna sosial media default
             });
-            button.style.color = ""
-            
+            button.style.color = "";
+
             const containerText = document.querySelector(".container-text-main");
-            containerText.style.paddingTop = "0"
+            containerText.style.paddingTop = "0";
         }
     }
 }
 
 // Menambahkan event listener untuk scroll hanya sekali
 window.addEventListener("scroll", handleScroll);
+window.addEventListener('scroll', function() {
+    const scrollPosition = window.scrollY;
+    const backgroundSpeed = 0.5; // Mengatur seberapa cepat latar belakang bergerak
+
+    // Menyesuaikan posisi latar belakang berdasarkan scroll
+    document.querySelector('.container').style.backgroundPosition = `50% ${scrollPosition * backgroundSpeed}px`;
+});
 
 // Smooth scrolling for anchor links
 const anchorLinks = document.querySelectorAll('a[href^="#"]');
