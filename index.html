@@ -7,6 +7,10 @@
   <title>Safta. - HOMEPAGE</title>
   <link href='style.css' rel='stylesheet'>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<style>
+  body { font-family: Arial, sans-serif; }
+</style>
+
 </head>
 
 <body>
@@ -27,8 +31,8 @@
         </section>
       </div>
       <div>
-        <button class="container-navbar-dropdown-button fas fa-bars" onclick="toggleDropdown()"></button>
-        <div class="container-navbar-dropdown-option">
+        <button class="container-navbar-button fas fa-bars" onclick="toggleDropdown()" aria-label="Toggle navigation menu"></button>
+        <div class="container-navbar-button-option">
           <a href="#">HOME</a>
           <a href="#">ABOUT</a>
           <a href="#">PROJECT</a>
@@ -121,10 +125,10 @@
     </div>
     <section class="sponsor-form">
       <input type="text" name="name" placeholder="Name">
-      <input type="text" name="email" placeholder="Email *">
+      <input type="email" name="email" placeholder="Email *" required>
       <textarea name="message" placeholder="Message" rows="4"></textarea>
       <div class="sponsor-form-contactme">
-        <button type="submit">SENT</button>
+        <button type="submit">SEND</button>
       </div>
     </section>
   </div>
