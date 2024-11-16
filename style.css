@@ -62,8 +62,9 @@ ul li {
     height: 67px;
     position: relative;
     width: 100%;
+    transform: translateY(0);
     will-change: transform, background-color;
-    transition: position 0.3s ease transform 0.3s ease background-color 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 /* Fixed navbar when scrolled */
@@ -72,13 +73,10 @@ ul li {
     top: 0;
     left: 0;
     right: 0;
-    transform: translateY(0);
+    transform: translateY(0px);
     z-index: 1000;
     background-color: var(--background-color);
-}
-
-.container-navbar.navbar-open{
-    background-color: var(--background-color);
+    transition: all 0.3s ease;
 }
 
 .container-navbar-logo {
@@ -485,4 +483,47 @@ ul li {
     .services{
         height: 100vh;
     }
+}
+
+/* Mengatur scrollbar untuk elemen */
+::-webkit-scrollbar {
+    width: 10px; /* Lebar scrollbar */
+    height: 12px; /* Tinggi scrollbar horizontal */
+}
+
+/* Track (latar belakang scrollbar) */
+::-webkit-scrollbar-track {
+    background: transparent; /* Warna track */
+    border-radius: 10px; /* Membuat track membulat */
+}
+
+/* Thumb (bagian yang bisa digeser) */
+::-webkit-scrollbar-thumb {
+    background: #888; /* Warna thumb */
+    border-radius: 10px; /* Membuat thumb membulat */
+    border: 2px solid #f4f4f4; /* Memberikan efek jarak */
+}
+
+/* Hover pada thumb */
+::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Warna thumb saat di-hover */
+}
+
+/* Scrollbar horizontal (opsional, jika diperlukan) */
+::-webkit-scrollbar-horizontal {
+    height: 8px; /* Tinggi scrollbar horizontal */
+}
+
+/* Track untuk scrollbar horizontal */
+::-webkit-scrollbar-track-horizontal {
+    background: #e0e0e0; /* Warna track horizontal */
+}
+
+/* Thumb untuk scrollbar horizontal */
+::-webkit-scrollbar-thumb-horizontal {
+    background: #888; /* Warna thumb horizontal */
+}
+
+.scroll-active ::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1); /* Warna track saat scroll */
 }
