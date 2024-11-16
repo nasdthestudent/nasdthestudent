@@ -3,6 +3,8 @@ function toggleDropdown() {
     const navbarLogo = document.querySelector(".container-navbar-logo");
     const navbarSosmed = document.querySelectorAll(".container-navbar-sosmed a");
     const navbarButton = document.querySelector(".container-navbar-button");
+    const containerText = document.querySelector(".container-text-main");
+    const dropdown = document.querySelector(".container-navbar-button-option");
     
     // Navbar becomes fixed if scroll > 67 or dropdown is open
     if (window.scrollY > 67 || dropdownOpen) {
@@ -10,38 +12,72 @@ function toggleDropdown() {
         navbarLogo.classList.add('black');
         navbarSosmed.forEach(link => {
             link.classList.add('black');
-
+            
         })
         navbarButton.classList.add('black');
-        console.log('navbar gonna fixed');
-    } else {
-        navbar.classList.remove('navbar-fixed');
-        navbarLogo.classList.remove('black');
-        navbarSosmed.forEach(link => {
+        containerText.style.paddingTop = ('67px')
+    } 
+    else if(dropdown.classList.contains('open')){
+        setTimeout(() => {
+            navbar.classList.remove('navbar-fixed');
+            navbarLogo.classList.remove('black');
+            navbarSosmed.forEach(link => {
             link.classList.remove('black');
-
+            
         })
         navbarButton.classList.remove('black');
-        console.log('navbar gonna relative');
+        containerText.style.paddingTop = ('0px')
+            
+        }, 500);
+    }
+    else{
+        navbar.classList.remove('navbar-fixed');
+            navbarLogo.classList.remove('black');
+            navbarSosmed.forEach(link => {
+            link.classList.remove('black');
+            
+        })
+        navbarButton.classList.remove('black');
+        containerText.style.paddingTop = ('0px')
+        
+
     }
 }
-
 // Event listener for scroll to check navbar state
 window.addEventListener("scroll", toggleDropdown);
 
 let dropdownOpen = false;
 
-const navbarButton = document.getElementById("navbarButton");
-navbarButton.addEventListener("click", () => {
+const navbarButtonID = document.getElementById("navbarButton");
+const navbar = document.querySelector(".container-navbar");
+const navbarLogo = document.querySelector(".container-navbar-logo");
+const navbarSosmed = document.querySelectorAll(".container-navbar-sosmed a");
+const navbarButton = document.querySelector(".container-navbar-button");
+const containerText = document.querySelector(".container-text-main");
+navbarButtonID.addEventListener("click", () => {
     const dropdown = document.querySelector(".container-navbar-button-option");
 
     // Toggle dropdown visibility
     if (dropdownOpen) {
-        dropdown.classList.remove('open');
-        console.log('dropdown not open');
+        dropdown.style.maxHeight = '0'
+        
+        setTimeout(() => {
+            // navbar.classList.remove('navbar-fixed');
+            // navbarLogo.classList.remove('black');
+            // navbarSosmed.forEach(link => {
+            //     link.classList.remove('black');
+                
+            // })
+            // navbarButton.classList.remove('black');
+            // containerText.style.paddingTop = ('0px')
+            dropdown.classList.remove('open');
+            
+        }, 500);
     } else {
+        dropdown.style.maxHeight = '500px'
+        // navbar.classList.add('navbar-fixed');
+
         dropdown.classList.add('open');
-        console.log('dropdown open');
     }
 
     // Toggle the dropdownOpen flag

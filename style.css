@@ -151,7 +151,7 @@ ul li {
 .container-navbar-button-option.open {
     opacity: 1;
     pointer-events: auto;
-    max-height: 500px;
+    /* max-height: 500px; */
 }
 
 .container-navbar-button-option a {
