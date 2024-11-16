@@ -62,7 +62,8 @@ ul li {
     height: 67px;
     position: relative;
     width: 100%;
-    transition: position 0.3s;
+    will-change: transform, background-color;
+    transition: position 0.3s ease transform 0.3s ease background-color 0.3s ease;
 }
 
 /* Fixed navbar when scrolled */
@@ -71,6 +72,7 @@ ul li {
     top: 0;
     left: 0;
     right: 0;
+    transform: translateY(0);
     z-index: 1000;
     background-color: var(--background-color);
 }
@@ -165,6 +167,10 @@ ul li {
 
 .container-navbar-button-option a:hover {
     color: rgba(0, 0, 0, 0.5);
+}
+.container-navbar-button-option a:active {
+    background-color: var(--primary-color);
+    color: white;
 }
 
 
