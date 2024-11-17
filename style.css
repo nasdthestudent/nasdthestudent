@@ -166,10 +166,12 @@ ul li {
 .container-navbar-button-option a:hover {
     color: rgba(0, 0, 0, 0.5);
 }
-.container-navbar-button-option a:active {
-    background-color: var(--primary-color);
+
+.container-navbar-button-option a.active {
+    background-color: var(--accent-color);
     color: white;
 }
+
 
 
 /* Main content styling */
@@ -454,9 +456,6 @@ ul li {
 
 /* Media Queries for responsiveness */
 @media (max-width: 1080px) {
-    .container-navbar {
-        /* flex-direction: row; */
-    }
 
     .container-navbar-dropdown-option {
         display: none;
